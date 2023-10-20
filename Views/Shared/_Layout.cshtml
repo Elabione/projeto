@@ -25,8 +25,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin"
-                                asp-action="Index">Admin</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
+
+                            }
                         </li>
                         <li>
                             @await Component.InvokeAsync("CarrinhoResumo")
@@ -45,6 +49,9 @@
                         </li>
                         <li>
                             @await Component.InvokeAsync("CategoriaMenu")
+                        </li>
+                        <li>
+                            @await Html.PartialAsync("_Login")
                         </li>
                     </ul>
                 </div>

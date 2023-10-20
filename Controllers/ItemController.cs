@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using projeto.Models;
 using projeto.Repositories.Interfaces;
@@ -5,6 +6,7 @@ using projeto.ViewModel;
 
 namespace projeto.Controllers
 {
+    
     public class ItemController : Controller
     {
         private readonly IItemRepository _itemRespository;
@@ -69,7 +71,7 @@ namespace projeto.Controllers
                     categoriaAtual = "Nada encontrado";
                 }
             }
-            return View("~/Views/Movel/List.cshtml", new
+            return View("~/Views/Item/List.cshtml", new
             ItemListViewModel
             {
                 CategoriaAtual = categoriaAtual,
