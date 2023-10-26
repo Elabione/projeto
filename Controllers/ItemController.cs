@@ -69,7 +69,7 @@ namespace projeto.Controllers
                     categoriaAtual = "Nada encontrado";
                 }
             }
-            return View("~/Views/Movel/List.cshtml", new
+            return View("~/Views/Item/List.cshtml", new
             ItemListViewModel
             {
                 CategoriaAtual = categoriaAtual,

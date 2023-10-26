@@ -13,6 +13,38 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\card1.png",
+      "PackagePath": "staticwebassets\\imagens\\card1.png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\card2.png",
+      "PackagePath": "staticwebassets\\imagens\\card2.png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\card3.png",
+      "PackagePath": "staticwebassets\\imagens\\card3.png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\card4.png",
+      "PackagePath": "staticwebassets\\imagens\\card4.png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\logo.png",
+      "PackagePath": "staticwebassets\\imagens\\logo.png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\slide1.png",
+      "PackagePath": "staticwebassets\\imagens\\slide1.png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\slide2.png",
+      "PackagePath": "staticwebassets\\imagens\\slide2.png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\slide3.png",
+      "PackagePath": "staticwebassets\\imagens\\slide3.png"
+    },
+    {
       "Id": "C:\\dev\\cs\\projeto\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
