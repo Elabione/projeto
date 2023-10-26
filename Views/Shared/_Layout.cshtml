@@ -38,9 +38,13 @@
                         <li class="nav-item me-5 pe-5">
                             <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
                         </li>
+                        <li class="nav-item">
+                            @if (User.IsInRole("Admin"))
+                            {
 
-                          <li>
-                            @await Component.InvokeAsync("CategoriaMenu")
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
+
+                            }
                         </li>
 
 
@@ -58,7 +62,12 @@
                                 </div>
                             </form>
                         </li>
-                      
+                        <li>
+                            @await Component.InvokeAsync("CategoriaMenu")
+                        </li>
+                        <li>
+                            @await Html.PartialAsync("_Login")
+                        </li>
                     </ul>
                 </div>
             </div>
