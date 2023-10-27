@@ -4,16 +4,16 @@
         <div class="card">
             <div class="text-center">
 
-                <img src="@Model.ImagemPequenaUrl" class="img-fluid" asp-append-version="true" alt="item">
+                <img src="@Model.ImagemPequenaUrl" class="img-fluid my-5" asp-append-version="true" alt="item">
 
             </div>
             <div class="card-block">
-                <h2 class="card-title">@Model.Nome</h2>
+                <h2 class="card-title ">@Model.Nome</h2>
                 <p class="card-text">
                 <h5>@Model.DescricaoDetalhada</h5>
                 </p>
                 <p class="btn btn-group align-content-lg-end">
-                    <a asp-controller="Item" asp-action="List" class="btn btn-outline-info">Ver todos os móveis</a>
+                    <a asp-controller="Item" asp-action="List" class="btn" style="btn-color:#3C3131">Ver todos os móveis</a>
 
                     <a class="btn btn-primary" id="cartButton" asp-controller="Carrinho"
                         asp-action="AdicionarItemNoCarrinhoCompra" asp-route-itemId="@Model.ItemId">

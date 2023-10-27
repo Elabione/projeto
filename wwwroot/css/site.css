@@ -17,3 +17,26 @@ html {
   min-height: 100%;
 }
 
+.bgregister{
+  z-index: -1000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tamanhotop{
+  height: 70px;
+}
+
+.rosa{
+  background-color: #FF99B1;
+}
+
+.rosa{
+  background-color: #FF99B1;
+}
+
+.marrom{
+  background-color: #3C3131;
+}

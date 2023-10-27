@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand ps-5 pe-5 pb-2" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/imagens/logo.png" alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
@@ -35,9 +35,6 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Localização</a>
                         </li>
 
-                        <li class="nav-item me-5 pe-5">
-                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
-                        </li>
                         <li class="nav-item">
                             @if (User.IsInRole("Admin"))
                             {
@@ -58,7 +55,9 @@
                                
                                 <div class="form-group d-flex">
                                     <input type="text" class="form-control" placeholder="Procurar produto" name="searchString" value="@ViewData["searchString"]">       
-                                    <button class="bg-white"><i class="bi bi-search"></i></button>                                 
+                                    <button style="background-color:#FF99B1; " class="border-1 border-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button>                                 
                                 </div>
                             </form>
                         </li>
@@ -74,18 +73,21 @@
         </nav>
     </header>
     
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="tamanhotop">
     </div>
+   
+        <main role="main" class="pb-3">
+              @RenderBody() 
+        </main>
+   
+  
     
     <footer class="text-white p-5" style="background-color:#3C3131;">
         <div class="container">
             <div class="row">
                 <!-- Básicos -->
-                <div class="col-md-4 ps-5">
-                    <ul>
+                <div class="col-12 col-md-4">
+                    <ul class="list-unstyled">
                     <h5>DeliveryFree</h5>
                     <li>Cadastre-se</li>
                     <li>Termos e condições</li>
@@ -94,8 +96,8 @@
                 </div>
 
                 <!-- Suporte -->
-                <div class="col-md-4">
-                    <ul>
+                <div class="col-12 col-md-4">
+                    <ul  class="list-unstyled">
                     <h5>Suporte</h5>
                     <li>DeliveryFree@suporte.com</li>
                     <li>Telefone: (123) 456-7890</li>
@@ -104,7 +106,7 @@
 
 
                 <!-- Redes Sociais -->
-                <div class="col-md-4 text-center">
+                <div class="col-12 col-md-4">
                     <h5>Redes Sociais</h5>
                       <svg class="m-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                         <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
