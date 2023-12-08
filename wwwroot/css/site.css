@@ -33,10 +33,22 @@ html {
   background-color: #FF99B1;
 }
 
-.rosa{
-  background-color: #FF99B1;
+.text-rosa {
+  color: #FF99B1 !;
 }
 
 .marrom{
   background-color: #3C3131;
+}
+
+.btn-rosa {
+  background-color:#FF99B1;
+}
+
+.btn-marrom {
+  background-color: #3C3131;
+}
+
+.tamanhofooter{
+  height: 200px;
 }

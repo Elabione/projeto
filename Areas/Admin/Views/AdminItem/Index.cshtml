@@ -1,14 +1,25 @@
-@model IEnumerable<projeto.Models.Item>
+@model ReflectionIT.Mvc.Paging.PagingList<projeto.Models.Item>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="rounded-pill rosa text-white p-2 text-center">Itens</h1>
+
+<form method="get" class="form-inline">
+<input name="filtro" class="form-control" placeholder="Buscar item"
+value="@Model.RouteValue["Filtro"]" />
+<button type="submit" class="btn btn-rosa text-white">Procurar</button>
+</form>
+Total de Itens : @Model.TotalRecordCount
+<div>
+<vc:pager paging-list="@Model"></vc:pager>
+</div>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar Novo Item</a>
 </p>
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>
@@ -58,10 +69,10 @@
                 @Html.DisplayFor(modelItem => item.Preco)
             </td>
             <td>
-                <img src="@Html.DisplayFor(modelItem => item.ImagemPequenaUrl)" width="100px">
+                <img src="@item.ImagemPequenaUrl" width="100px" asp-append-version="true">
             </td>
             <td>
-               <img src=" @Html.DisplayFor(modelItem => item.ImagemUrl)" width="100px">
+               <img src="@item.ImagemUrl" width="100px" asp-append-version="true">
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ativo)
@@ -73,11 +84,12 @@
                 @Html.DisplayFor(modelItem => item.Categoria.CategoriaId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.ItemId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ItemId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ItemId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.ItemId">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.ItemId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.ItemId">Deletar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+</div>

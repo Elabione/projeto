@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\projeto.bundle.scp.css"
     },
     {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\bd\\Restaurante.db",
+      "PackagePath": "staticwebassets\\bd\\Restaurante.db"
+    },
+    {
       "Id": "C:\\dev\\cs\\projeto\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -15,6 +19,10 @@
     {
       "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\bg.png",
       "PackagePath": "staticwebassets\\imagens\\bg.png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\bg2.png",
+      "PackagePath": "staticwebassets\\imagens\\bg2.png"
     },
     {
       "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\card1.png",
@@ -35,6 +43,22 @@
     {
       "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\destaques.png",
       "PackagePath": "staticwebassets\\imagens\\destaques.png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\item\\2589debb-73e6-49ea-9160-aa8a20cac290..png",
+      "PackagePath": "staticwebassets\\imagens\\item\\2589debb-73e6-49ea-9160-aa8a20cac290..png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\item\\7fda5bb1-dd7d-4c7a-b837-373ba8fee504..png",
+      "PackagePath": "staticwebassets\\imagens\\item\\7fda5bb1-dd7d-4c7a-b837-373ba8fee504..png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\item\\cd390b67-4b1e-4dd6-95e5-14b3857df731..png",
+      "PackagePath": "staticwebassets\\imagens\\item\\cd390b67-4b1e-4dd6-95e5-14b3857df731..png"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\item\\dc764837-e841-4e66-9477-8cfd637df693..png",
+      "PackagePath": "staticwebassets\\imagens\\item\\dc764837-e841-4e66-9477-8cfd637df693..png"
     },
     {
       "Id": "C:\\dev\\cs\\projeto\\wwwroot\\imagens\\logo.png",
@@ -283,6 +307,10 @@
     {
       "Id": "C:\\dev\\cs\\projeto\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\dev\\cs\\projeto\\wwwroot\\xml\\Pedidos.xml",
+      "PackagePath": "staticwebassets\\xml\\Pedidos.xml"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.projeto.props",

@@ -3,6 +3,8 @@ using projeto.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
+using projeto.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace projeto.Controllers
 {
@@ -11,10 +13,12 @@ namespace projeto.Controllers
     {
         private readonly IPedidoRepository _pedidoR;
         private readonly Carrinho _carrinho;
-        public PedidoController(IPedidoRepository pedidoR, Carrinho carrinho)
+        private readonly AppDbContext _context;
+        public PedidoController(IPedidoRepository pedidoR, Carrinho carrinho, AppDbContext context)
         {
             _pedidoR = pedidoR;
             _carrinho = carrinho;
+            _context = context;
         }
         public IActionResult Checkout()
         {
@@ -51,10 +55,33 @@ namespace projeto.Controllers
                 ViewBag.TotalPedido = _carrinho.GetCarrinhoCompraTotal();
                 //limpa o carrinho do cliente
                 _carrinho.LimparCarrinho();
+                ViewBag.UrlWhatsApp = EnviarMensagem(pedido.PedidoId);
                 //exibe a view com dados do cliente e do pedido
                 return View("~/Views/Pedido/CheckoutCompleto.cshtml", pedido);
             }
             return View(pedido);
+        }
+        public string EnviarMensagem(int pedidoId)
+        {
+            var pedido = _context.Pedidos.Include(p =>
+        p.PedidoItens).ThenInclude(p => p.Item).FirstOrDefault(p => p.PedidoId == pedidoId);
+
+
+            string numeroDestinatario = "+55Digite o DDD e numero tudo junto";
+
+            string mensagem = "Pedido: " + pedido.PedidoId.ToString() + "Cliente: " + pedido.Nome.ToString();
+
+            // Formate o número removendo caracteres não numéricos
+            string numeroFormatado = new
+
+            string(numeroDestinatario.Where(char.IsDigit).ToArray());
+
+            // Construa o link do WhatsApp
+            string urlWhatsApp = $"https://web.whatsapp.com/send?phone=+{numeroFormatado}&text={Uri.EscapeDataString(mensagem)}";
+
+            Console.WriteLine(urlWhatsApp);
+            // Retorne a View que contém o script JavaScript
+            return urlWhatsApp;
         }
     }
 }

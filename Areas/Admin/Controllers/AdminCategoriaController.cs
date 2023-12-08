@@ -8,10 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using projeto.Context;
 using projeto.Models;
+using ReflectionIT.Mvc.Paging;
 
 namespace projeto.Areas.Admin.Controllers
 {
-    [Authorize(Roles="Admin")]
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     public class AdminCategoriaController : Controller
     {
@@ -23,11 +24,29 @@ namespace projeto.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdminCategoria
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string filtro, int pageindex = 1,string sort = "Nome")
+ 
         {
-              return _context.Categorias != null ? 
-                          View(await _context.Categorias.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.Categorias'  is null.");
+            var itenslist =
+
+            _context.Categorias.AsNoTracking().AsQueryable();
+
+            if (filtro != null)
+            {
+                itenslist = itenslist.Where(p =>
+
+                p.Nome.ToLower().Contains(filtro.ToLower()));
+
+            }
+            var model = await PagingList.CreateAsync(itenslist, 5,
+
+            pageindex, sort, "Name");
+
+            model.RouteValue = new RouteValueDictionary{{"filtro", filtro
+
+}};
+
+            return View(model);
         }
 
         // GET: Admin/AdminCategoria/Details/5
@@ -151,16 +170,35 @@ namespace projeto.Areas.Admin.Controllers
             var categoria = await _context.Categorias.FindAsync(id);
             if (categoria != null)
             {
-                _context.Categorias.Remove(categoria);
+                try
+                {
+                    _context.Categorias.Remove(categoria);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateException ex)
+                {
+                    if (ex.InnerException.ToString().Contains("FOREIGN KEY"))
+                    {
+                        ViewData["Erro"] = "Essa categoria não pode ser deletada pois está sendo utilizada em um item";
+                        return View();
+                    }
+                    else
+                    {
+                        ViewData["Erro"] = "Erro desconhecido!";
+                        return View();
+                    }
+
+                }
+
             }
-            
-            await _context.SaveChangesAsync();
+
+
             return RedirectToAction(nameof(Index));
         }
 
         private bool CategoriaExists(int id)
         {
-          return (_context.Categorias?.Any(e => e.CategoriaId == id)).GetValueOrDefault();
+            return (_context.Categorias?.Any(e => e.CategoriaId == id)).GetValueOrDefault();
         }
     }
 }

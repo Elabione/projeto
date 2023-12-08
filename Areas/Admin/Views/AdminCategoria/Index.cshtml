@@ -1,13 +1,22 @@
-@model IEnumerable<projeto.Models.Categoria>
+@model ReflectionIT.Mvc.Paging.PagingList<projeto.Models.Categoria>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1 class="rounded-pill rosa text-white p-2 text-center">Categoria</h1>
 
+<form method="get" class="form-inline">
+    <input name="filtro" class="form-control" placeholder="Pesquisar Categoria" value="@Model.RouteValue["Filtro"]" />
+    <button type="submit" class="btn btn-marrom text-white">Procurar</button>
+</form>
+Total de Categorias : @Model.TotalRecordCount
+<div>
+    <vc:pager paging-list="@Model"></vc:pager>
+</div>
+<hr>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="rosa h4 p-2 ps-4 pe-3 rounded-pill link-light">Criar nova categoria</a>
 </p>
 <table class="table">
     <thead>
@@ -19,17 +28,18 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoriaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoriaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoriaId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CategoriaId">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.CategoriaId">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CategoriaId">Deletar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
